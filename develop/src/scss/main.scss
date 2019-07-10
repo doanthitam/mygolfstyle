@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+//1. Configuration and helpers
+// @import "helpers/functions";
+@import "helpers/mixin";
+@import "helpers/variables";
+
+// 2. Vendors
+// @import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
+//@import "vendor/jquery";
+
+// 3. Base stuff
+@import "base/normalize";
+//@import "base/font";
+
+// 4. Components
+//@import "components/functions";
+//@import "components/modal";
+//@import "components/form";
+//@import "components/modules";
+// @import "components/button";
+// @import "components/icon";
+//@import "components/table";
+// @import "components/form";
+// @import "components/modal";
+
+// 5. Layout-related sections
+// @import "common/footer";
+// @import "common/common_pc";
+// @import "layout/sidebar";
+// @import "layout/responsive";
+
+// 6. Page-specific styles
+
+
+@media screen and (min-width: 768px), print {
+  @import "page/top_pc";
+}
+@media screen and (max-width: 768px) {
+  @import "page/top_sp";
+}

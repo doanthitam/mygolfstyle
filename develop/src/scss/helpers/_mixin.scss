@@ -1,0 +1,450 @@
+//
+// mixin
+//------------------------------------------------------------------------
+
+//------------------------------------| Media Query mixin |------------------------------------
+// See https://github.com/sass-mq/sass-mq/ for original full version.
+// @example scss
+// .element {
+//   @include mq($from: phone) {
+//     color: $c-black;
+//   }
+//   @include mq($to: phablet) {
+//     color: $c-black;
+//   }
+//   @include mq(phone, phablet) {
+//     color: $c-black;
+//   }
+//   @include mq($from: phone, $and: '(orientation: landscape)') {
+//     color: $c-black;
+//   }
+//   @include mq(phone) {
+//     color: $c-black;
+//   }
+//   @include mq(desktop, $media-feature: height) {
+//     color: $c-black;
+//   }
+//   @include mq(tablet, $media-type: screen) {
+//     color: $c-black;
+//   }
+//   // Advanced use:
+//   $custom-breakpoints: (L: 900px, XL: 1200px);
+//   @include mq(L, $bp: $custom-breakpoints) {
+//     color: $c-black;
+//   }
+// }
+// build scss
+// @media (min-width: 375px) {
+//   .element {
+//     color: #000;
+//   }
+// }
+
+// @media (max-width: 640px) {
+//   .element {
+//     color: #000;
+//   }
+// }
+
+// @media (min-width: 375px) and (max-width: ) {
+//   .element {
+//     color: #000;
+//   }
+// }
+
+// @media (min-width: 375px) and (orientation: landscape) {
+//   .element {
+//     color: #000;
+//   }
+// }
+
+// @media (min-width: 375px) {
+//   .element {
+//     color: #000;
+//   }
+// }
+
+// @media (min-height: 1280px) {
+//   .element {
+//     color: #000;
+//   }
+// }
+
+// @media screen and (min-width: 768px) {
+//   .element {
+//     color: #000;
+//   }
+// }
+
+// @media (min-width: 900px) {
+//   .element {
+//     color: #000;
+//   }
+// }
+
+@mixin mq(
+  $from: false,
+  $to: false,
+  $and: false,
+  $media-feature: width,
+  $media-type: all,
+  $bp: $breakpoints
+) {
+  $min-width: 0;
+  $max-width: 0;
+  $media-query: '';
+
+  // From: this breakpoint (inclusive)
+  @if $from {
+    @if type-of($from) == number {
+      $min-width: $from;
+    }
+
+    @else {
+      $min-width: map_get($bp, $from);
+    }
+  }
+
+  // Until: that breakpoint (exclusive)
+  @if $to {
+    @if type-of($to) == number {
+      $max-width: $to;
+    }
+
+    @else {
+      // $negative: if($em-media-queries, 0.01em, 1px);
+      $max-width: map_get($bp, $to);
+    }
+  }
+
+  @if $media-feature {
+    @if $min-width != 0 { $media-query: '#{$media-query} and (min-#{$media-feature}: #{$min-width})'; }
+
+    @if $max-width != 0 { $media-query: '#{$media-query} and (max-#{$media-feature}: #{$max-width})'; }
+  }
+
+  @if $and {
+    $media-query: '#{$media-query} and #{$and}';
+  }
+
+  // Remove unnecessary media query prefix 'all and '
+  @if ($media-type == 'all' and $media-query != '') {
+    $media-type: '';
+    $media-query: str-slice(unquote($media-query), 6);
+  }
+
+  @media #{$media-type + $media-query} {
+    @content;
+  }
+}
+
+//------------------------------------| CSS raw |------------------------------------
+// used for creating CSS only triangles
+// example:
+// .element {
+//   &::before {
+//     @include css-triangle(blue, down);
+//   }
+// }
+@mixin css-raw($right, $top, $rotate, $color) {
+  position: absolute;
+  right: $right;
+  top: $top;
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-top: 2px solid $color;
+  border-right: 2px solid $color;
+  cursor: pointer;
+  transform: rotate($rotate) translate(-50%, -50%);
+}
+
+//------------------------------------| CSS Triangle |------------------------------------
+// used for creating CSS only triangles
+// example:
+// .element {
+//   &::before {
+//     @include css-triangle(blue, down);
+//   }
+// }
+@mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false) {
+  @include pseudo($pos: $position);
+
+  width: 0;
+  height: 0;
+
+  @if $round {
+    border-radius: 3px;
+  }
+
+  @if $direction == down {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+    margin-top: 0 - round($size / 2.5);
+  }
+
+  @else if $direction == up {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+    margin-bottom: 0 - round($size / 2.5);
+  }
+
+  @else if $direction == right {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+    margin-right: -$size;
+  }
+
+  @else if  $direction == left {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+    margin-left: -$size;
+  }
+}
+
+//------------------------------------| Margin / Padding Quick Resets |------------------------------------
+// example: top & bottom margin set to $spacing-unit
+// .element {
+//   @include push-ends(10px);
+// }
+// example: left & right padding set to $spacing-unit-small
+// .element {
+//   @include soft-sides($spacing-unit-small);
+// }
+
+// add/remove margins
+@mixin push-ends($spacing: $spacing-unit) { margin: { top: $spacing; bottom: $spacing; } }
+
+@mixin push-sides($spacing: $spacing-unit) { margin: { left: $spacing; right: $spacing; } }
+
+@mixin push-auto { margin: { left: auto; right: auto; } }
+
+@mixin offset-sides($spacing: $spacing-unit) { margin: { left: -$spacing; right: -$spacing; } }
+
+@mixin flush-ends { margin: { top: 0; bottom: 0; } }
+
+@mixin flush-sides { margin: { left: 0; right: 0; } }
+
+// add/remove paddings
+@mixin soft-ends($spacing: $spacing-unit) { padding: { top: $spacing; bottom: $spacing; } }
+
+@mixin soft-sides($spacing: $spacing-unit) { padding: { left: $spacing; right: $spacing; } }
+
+@mixin hard-ends { padding: { top: 0; bottom: 0; } }
+
+@mixin hard-sides { padding: { left: 0; right: 0; } }
+
+//------------------------------------| Form input placeholder text |------------------------------------
+// example:
+// input,
+// textarea {
+//   @include input-placeholder {
+//     color: $grey;
+//   }
+// }
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &:-webkit-input-placeholder { @content; }
+}
+
+//------------------------------------| Retina images |------------------------------------
+// example:
+// .element {
+//   @include retina {
+//     background-image: url(../img/background@2x.png);
+//   }
+// }
+// @mixin retina {
+//   @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+//     only screen and (-moz-min-device-pixel-ratio: 1.5),
+//     only screen and (-o-min-device-pixel-ratio: 3 / 2),
+//     only screen and (min-device-pixel-ratio: 1.5),
+//     only screen and (min-resolution: 1.5dppx) {
+//     @content;
+//   }
+// }
+
+//------------------------------------| Content margins |------------------------------------
+// fore removing first/last child margins
+// example: default
+// .element {
+//   @include content-margins;
+// }
+// output:
+// .element > *:first-child {
+//   margin-top: 0;
+// }
+// .element > *:last-child {
+//   margin-bottom: 0;
+// }
+// example: empty selector
+// .element {
+//   @include content-margins(false);
+// }
+// output:
+// .element:first-child {
+//   margin-top: 0;
+// }
+// .element:last-child {
+//   margin-bottom: 0;
+// }
+@mixin content-margins($selector: '> *', $last-child: false) {
+  @if not $selector {
+    $selector: '&';
+  }
+
+  #{unquote($selector)} {
+    &:first-child { margin-top: 0; }
+
+    @if $last-child {
+      &:last-child { margin-bottom: 0; }
+    }
+  }
+}
+
+//------------------------------------| Hide text |------------------------------------
+// example:
+// .element {
+//   @include hide-text;
+// }
+@mixin hide-text($break: false, $indent: 200%, $align: left, $overflow: hidden) {
+  @if $break {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  text: {
+    indent: $indent;
+    align: $align;
+  }
+
+  font-size: 0;
+  white-space: nowrap;
+
+  @if $overflow {
+    overflow: $overflow;
+  }
+}
+
+//------------------------------------| Typography |------------------------------------
+// Text image replacement, with responsive ratio
+// HTML:
+// <h1 class="element">
+// 	<span>Text to replace</span>
+// </h1>
+// example:
+// .element {
+// 	@include typography(200, 50, 'hello-world');
+// }
+@mixin typography($w, $h, $file, $type: png, $overflow: hidden) {
+  @include responsive-ratio($w, $h, true);
+
+  position: relative;
+  max-width: $w * 1px;
+  background: url('/assets/img/typography/#{$file}.#{$type}') 50% 50% no-repeat;
+  background-size: contain;
+
+  span {
+    @include hide-text(true, $overflow: $overflow);
+  }
+}
+
+//------------------------------------| Helper mixins |------------------------------------
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+// Push center
+@mixin center-box($top, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  bottom: $bottom;
+  left: $left;
+  transform: translate(-50%, -50%);
+}
+
+@mixin center-flex($display: flex, $center: center) {
+  display: $display;
+  justify-content: $center;
+  align-items: $center;
+}
+
+// Contain floats / clearfix
+@mixin cf {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Max text
+@mixin truncate($truncation-boundary) {
+  max-width: #{$truncation-boundary}px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Hide from both screenreaders and browsers
+@mixin hidden {
+  display: none;
+  visibility: hidden;
+}
+
+@mixin visible($state: 'block') {
+  display: unquote($state);
+  visibility: visible;
+}
+
+// Hide only visually, but have it available for screenreaders
+@mixin vh($focusable: false) {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+
+  @if $focusable {
+    @include vh-focusable;
+  }
+}
+
+@mixin vh-reset {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+// Allow the element to be focusable when navigated to via the keyboard
+@mixin vh-focusable {
+  &:active,
+  &:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+}
+
+// Hide visually and from screenreaders, but maintain layout
+@mixin invisible {
+  visibility: hidden;
+}
