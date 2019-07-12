@@ -110,6 +110,7 @@ section {
   background: #0c3864;
   padding: 60px 0;
   counter-reset: h3;
+  margin-top: -6px;
   h2 {
     padding-left: 100px;
   }
@@ -188,6 +189,7 @@ section {
       .inner_txt {
         position: relative;
         height: 400px;
+        padding: 50px 50px 0 78px;
         &:before {
           left: -101px;
         }
@@ -209,7 +211,7 @@ section {
           top: 0;
           height: 201px;
           right: -601px;
-          align-items: center;
+          padding: 50px 0;
           > p {
             span {
               width: 172px;
@@ -223,6 +225,7 @@ section {
           }
           .point_muilti {
             ul {
+              margin-bottom: 17px;
               li {
                 width: 135px;
                 height: 61px;
@@ -236,11 +239,66 @@ section {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                position: relative;
+                &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3){
+                  &:before {
+                    content: "\00D7";
+                    color: #0c3864;
+                    font-size: 14px;
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                    right: -18px;
+                    font-family: "Hiragino Kaku Gothic Pro";
+                  }
+                }
+                &:nth-of-type(3) {
+                  &:before {
+                    content: "\003D";
+                  }
+                }
                 &:last-child {
                   background: #c1b083;
                   color: #0c3864;
                 }
               }
+            }
+            p {
+              text-align: center;
+              font-size: 14px;
+              line-height: 24px;
+            }
+          }
+        }
+        .point_inner {
+          padding: 59px 0 0 63px;
+          dl {
+            padding-left: 7px;
+            margin-bottom: 30px;
+            dt {
+              font-size: 18px;
+              line-height: 24px;
+              color: #0c3864;
+              padding-left: 20px;
+              position: relative;
+              font-weight: bold;
+              margin-bottom: 17px;
+              &:after {
+                content: "";
+                background: #0c3864;
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+              }
+            }
+            dd {
+              font-size: 14px;
+              line-height: 22px;
+              color: #0c3864;
             }
           }
         }
@@ -304,16 +362,23 @@ section {
       }
     }
     .scoreup {
-      font-size: 20px;
-      font-weight: bold;
+      margin-top: 17px;
+      span {
+        font-size: 20px;
+        font-weight: bold;
+      }
     }
     .line_up {
-      margin: 30px 0 35px;
+      margin: 30px 0 20px;
       display: block;
+    }
+    .mt {
+      margin-top: 58px;
     }
   }
 }
 .access {
+  margin: 100px 0 80px;
   h2 {
     padding-left: 70px;
     span {
@@ -340,7 +405,7 @@ section {
           line-height: 24px;
           text-align: center;
           color: #0c3864;
-          margin-bottom: 15px;
+          margin: 10px 0 15px;
         }
         a {
           color: #c1b083;
@@ -363,6 +428,9 @@ section {
   padding: 80px 50px;
   justify-content: space-between;
   align-items: center;
+  .flex {
+    align-items: center;
+  }
   &_logo {
     width: 194px;
   }
@@ -370,6 +438,7 @@ section {
     text-decoration: none;
     font-size: 15px;
     color: #0c3864;
+    padding-left: 100px;
   }
   small{
     font-size: 14px;

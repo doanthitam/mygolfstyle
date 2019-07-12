@@ -10,24 +10,32 @@ if(!(k&&k.isSVG||"tween"===l||z.Names.prefixCheck(l)[1]!==!1||z.Normalizations.r
 $(window).on('resize',function(){
   // resize();
 })
-var backtotop = $('#scrollTop');
-$(window).scroll(function(){
-  if ($(window).scrollTop() >= 500){
-    backtotop.addClass('show');
-  }else{
-    backtotop.removeClass('show');
-  }
-  if ($(window).scrollTop() >= 0) {
-    $('.header').addClass('fixed-header');
-    $('.header .logo').addClass('visible-title');
-    }else {
-        $('.header').removeClass('fixed-header');
-        $('.header .logo').removeClass('visible-title');
-    }
+//scroll//
+$("#js-menuButton").on("click", function() {
+ $(this).toggleClass("active");
+ $("#js-menu").toggle();
+ if ($(window).width() < 768) {
+   $("#js-menu li").hide();
+   $("#js-menu li").each(function(i) {
+     $(this)
+       .delay(50 * i)
+       .fadeIn(500);
+   });
+ }
+ return false;
 });
-backtotop.on('click', function(e) {
-  e.preventDefault();
-  $('html, body').animate({scrollTop:0}, '300');
+
+$('.nav a[href^="#"]').on("click",function() {
+ var speed = 500;
+ var href = $(this).attr("href");
+ var target = $(href == "#" || href == "" ? "html" : href);
+ var position = target.offset().top - 104;
+ $("html, body").animate({ scrollTop: position }, speed, "swing");
+ $("#js-menuButton").removeClass("active");
+ if ($(window).width() < 768) {
+   $("#js-menu").hide();
+ }
+ return false;
 });
 
 // Anchor
