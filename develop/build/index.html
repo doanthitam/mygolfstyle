@@ -6,33 +6,36 @@
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css/main.css"/>
   <body>
     <div class="container">
       <header class="header flex">
         <h1 class="logo">
-          <img src="./images/logo_header.png" alt="my golf">
+          <a href="/"><img src="./images/logo_header.png" alt="my golf"></a>
         </h1>
-        <nav>
-          <ul class="flex">
-            <li>
-              <a href="/">
-                <span>Concept</span><span>コンセプト</span>
-              </a>
-            </li>
-            <li>
-              <a href="/">
-                <span>Let’s lesson</span><span>レッスン内容</span>
-              </a>
-            </li>
-            <li>
-              <a href="/">
-                <span>Access</span><span>アクセス</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <div class="menu">
+          <p class="show_sp menuIcon"><a class="menu_trigger" href="#" id="js-menuButton"><span></span><span></span><span></span></a></p>
+          <nav id="js-menu">
+            <ul class="flex">
+              <li>
+                <a href="#Concept">
+                  <span>Concept</span><span>コンセプト</span>
+                </a>
+              </li>
+              <li>
+                <a href="#lesson">
+                  <span>Let’s lesson</span><span>レッスン内容</span>
+                </a>
+              </li>
+              <li>
+                <a href="#Access">
+                  <span>Access</span><span>アクセス</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </header>
       <main>
         <div class="mv">
@@ -44,15 +47,11 @@
               <span>BRING ABOUT THE BEST SCORE</span>
               <span>MY GOLF STYLE</span>
             </p>
-            <p>もっとゴルフを<br />おもしろく‼︎</p>
+            <p>もっとゴルフを<br / class="show_pc">おもしろく‼︎</p>
           </h2>
-          <a class="mv_trial" href="https://www.esforta.co.jp/golf/trial/school.htm" target="_blank">
-            <figure>
-              <img src="./images/trial.jpg" alt=" trial reservation">
-            </figure>
-          </a>
+          <a href="https://www.esforta.co.jp/lp/yokohama/inquiry/" target="_blank" class="mv_trial"><span class="en">TRIAL RESERVATION</span><span class="jp">見学・体験はこちらから</span></a>
         </div>
-        <section class="concept">
+        <section class="concept" id="Concept">
           <h2><span>Concept</span></h2>
           <div class="concept_think row">
             <h3>お客様が抱える問題・悩み</h3>
@@ -66,76 +65,78 @@
             </div>
           </div>
           <p>だからスコアが出ない…、ゴルフが楽しめない…</p>
-          <article class="flex">
-            <figure>
-              <img src="./images/concept_01.jpg" alt="concept">
-            </figure>
-            <div class="inner_txt">
-              <h3>ボールに当たらない…</h3>
-              <p>ボールに当たらない理由は、アドレス、スイング軌道、体の関節や筋肉の使い方など様々な要素が関連します。<br />
-              スイング中、頭のみを全く動かさないでいるのは難しい事です。<br />
-              頭を動かさずにスイングできたかを自分で感じる事はほとんどできません。<br />
-              頭を動かさず、ボールを凝視したところでクラブヘッドがボールに当たる保証はありません。<span class="line_up">フェースの向きと打点位置を変え、スイングの再現性を高めることで、ボールに当たる率を上げて行きます。</span>
-              </p>
-              <p>⇒マイゴルフスタイルでは…<span class="scoreup">レッスンプロによる指導</span></p>
-            </div>
-          </article>
-          <article class="flex">
-            <figure>
-              <img src="./images/concept_02.jpg" alt="concept">
-            </figure>
-            <div class="flex inner_txt">
-              <div class="flex whitebg">
-                <p><span>飛ばしの<br />３大要素</span></p>
-                <div class="point_muilti">
-                  <ul class="flex">
-                    <li>ボールの<br />初速</li>
-                    <li>最適な<br />打ち出し角度</li>
-                    <li>最適な<br />ボールのスピン量</li>
-                    <li>最大飛距離</li>
-                  </ul>
-                  <p>これらの３大要素のうちどれかが非効率であると飛距離は出ません。</p>
+          <div id="lesson">
+            <article class="flex">
+              <figure>
+                <img src="./images/concept_01.jpg" alt="concept">
+              </figure>
+              <div class="inner_txt">
+                <h3>ボールに当たらない…</h3>
+                <p>ボールに当たらない理由は、アドレス、スイング軌道、体の関節や筋肉の使い方など様々な要素が関連します。<br />
+                スイング中、頭のみを全く動かさないでいるのは難しい事です。<br />
+                頭を動かさずにスイングできたかを自分で感じる事はほとんどできません。<br />
+                頭を動かさず、ボールを凝視したところでクラブヘッドがボールに当たる保証はありません。<span class="line_up">フェースの向きと打点位置を変え、スイングの再現性を高めることで、ボールに当たる率を上げて行きます。</span>
+                </p>
+                <p class="scoreup">⇒マイゴルフスタイルでは…<span>レッスンプロによる指導</span></p>
+              </div>
+            </article>
+            <article class="flex">
+              <figure>
+                <img src="./images/concept_02.jpg" alt="concept">
+              </figure>
+              <div class="flex inner_txt">
+                <div class="flex whitebg">
+                  <p><span>飛ばしの<br / class="show_pc">３大要素</span></p>
+                  <div class="point_muilti">
+                    <ul class="flex">
+                      <li>ボールの<br / class="show_pc">初速</li>
+                      <li>最適な<br / class="show_pc">打ち出し角度</li>
+                      <li>最適な<br / class="show_pc">ボールのスピン量</li>
+                      <li>最大飛距離</li>
+                    </ul>
+                    <p>これらの３大要素のうちどれかが非効率であると飛距離は出ません。</p>
+                  </div>
+                </div>
+                <div class="point_inner">
+                  <h3>飛距離が出ない……</h3>
+                  <dl>
+                    <dt>ボール初速</dt>
+                    <dd>ボールが打ち出された瞬間のボールスピードを表します。<br />
+                    基本的にクラブスピードが速ければ速いほどボール初速は速くなります。<br />
+                    正しい体の動かし方に変われば、ヘッドスピードとボール初速は上がります。</dd>
+                  </dl>
+                  <dl>
+                    <dt>ボールの打ち出し角度</dt>
+                    <dd>ヘッドスピードの速さにより最適なボールの打ち出し角度が決まってきます。<br />
+                    打ち出し角度は高すぎても低すぎても飛距離をロスします。<br />
+                    打ち出し角度が狂ってしまう原因はアドレスとスイングです。<br />
+                    アドレスだけでも変われば、飛距離が伸びる可能性があります。</dd>
+                  </dl>
+                  <dl>
+                    <dt>ボールの打ち出し角度</dt>
+                    <dd>ボールが飛んでいる間の回転量のことです。ボールは打ち出された瞬間からバックスピンがかかり飛んでいきます。<br />
+                    最適なスピン量で打つにはフェースの向きが重要です。</dd>
+                  </dl>
+                  <p class="scoreup">⇒マイゴルフスタイルでは…<span>レッスン受け放題がスコアアップへの近道</span></p>
                 </div>
               </div>
-              <div class="point_inner">
-                <h3>飛距離が出ない……</h3>
-                <dl>
-                  <dt>ボール初速</dt>
-                  <dd>ボールが打ち出された瞬間のボールスピードを表します。<br />
-                  基本的にクラブスピードが速ければ速いほどボール初速は速くなります。<br />
-                  正しい体の動かし方に変われば、ヘッドスピードとボール初速は上がります。</dd>
-                </dl>
-                <dl>
-                  <dt>ボールの打ち出し角度</dt>
-                  <dd>ヘッドスピードの速さにより最適なボールの打ち出し角度が決まってきます。<br />
-                  打ち出し角度は高すぎても低すぎても飛距離をロスします。<br />
-                  打ち出し角度が狂ってしまう原因はアドレスとスイングです。<br />
-                  アドレスだけでも変われば、飛距離が伸びる可能性があります。</dd>
-                </dl>
-                <dl>
-                  <dt>ボールの打ち出し角度</dt>
-                  <dd>ボールが飛んでいる間の回転量のことです。ボールは打ち出された瞬間からバックスピンがかかり飛んでいきます。<br />
-                  最適なスピン量で打つにはフェースの向きが重要です。</dd>
-                </dl>
-                <p>⇒マイゴルフスタイルでは…<span class="scoreup">レッスン受け放題がスコアアップへの近道</span></p>
+            </article>
+            <article class="flex">
+              <figure>
+                <img src="./images/concept_03.jpg" alt="concept">
+              </figure>
+              <div class="inner_txt">
+                <h3>ボールが曲がる…</h3>
+                <p>ボールが曲がる理由を知っておくことで失敗の可能性を少なくすることが出来ます。<br />
+                ここ数年、最新の弾道解析機やハイスピードカメラの技術革新により、ボールが曲がるメカニズムの真実が解明されてきました。<br />
+                新飛球法則によるとボールの左右打ち出し方向に関してクラブフェースの向きが影響します。<br />
+                ボールの曲がりを少なくするには、フェースの向きとクラブ軌道が重要です。</p>
+                <p class="scoreup mt">⇒マイゴルフスタイルでは…<span>高機能シミュレーター・動画解析で課題が可視化</span></p>
               </div>
-            </div>
-          </article>
-          <article class="flex">
-            <figure>
-              <img src="./images/concept_03.jpg" alt="concept">
-            </figure>
-            <div class="inner_txt">
-              <h3>ボールが曲がる…</h3>
-              <p>ボールが曲がる理由を知っておくことで失敗の可能性を少なくすることが出来ます。
-              ここ数年、最新の弾道解析機やハイスピードカメラの技術革新により、ボールが曲がるメカニズムの真実が解明されてきました。
-              新飛球法則によるとボールの左右打ち出し方向に関してクラブフェースの向きが影響します。
-              ボールの曲がりを少なくするには、フェースの向きとクラブ軌道が重要です。</p>
-              <p>⇒マイゴルフスタイルでは…<span class="scoreup">高機能シミュレーター・動画解析で課題が可視化</span></p>
-            </div>
-          </article>
+            </article>
+          </div>
         </section>
-        <section class="access">
+        <section class="access" id="Access">
           <h2><span>Access</span></h2>
           <article>
             <h3>主要都市部・横浜に8つの店舗展開</h3>
@@ -184,12 +185,14 @@
           </article>
         </section>
       </main>
-      <footer class="footer">
-        <h1 class="footer_logo">
-          <img src="./images/logo_footer.png" alt="my golf">
-        </h1>
-        <a href="https://www.esforta.co.jp/pdf/privacy.pdf" target="_blank">個人情報保護方針</a>
-        <small>Copyright ©Sumitomofudosan Esforta MY GOLF STYLE. All Rights Reserved.</small>
+      <footer class="footer flex">
+        <div class="flex">
+          <h1 class="footer_logo">
+            <img src="./images/logo_footer.png" alt="my golf">
+          </h1>
+          <a href="https://www.esforta.co.jp/pdf/privacy.pdf" target="_blank">個人情報保護方針</a>
+        </div>
+        <small>Copyright &copy; Sumitomofudosan Esforta MY GOLF STYLE. <br / class="show_sp">All Rights Reserved.</small>
       </footer>
     </div>
     <script src="./js/main.js"></script>
