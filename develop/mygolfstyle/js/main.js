@@ -29,12 +29,18 @@ $("#js-menuButton").on("click", function() {
 $('a[href^="#"]').click(function(){
   var hasttop = $(this.hash).offset().top;
   var hasttopNew = hasttop - 104;
-  $('html, body').animate({
-    scrollTop: hasttopNew
-  }, 500);
+  var hasttopNewSp = hasttop - 83;
+  if ($(window).width() > 768) {
+    $('html, body').animate({
+      scrollTop: hasttopNew
+    }, 500);
+  }
   $("#js-menuButton").removeClass("active");
   if ($(window).width() < 768) {
       $("#js-menu").hide();
+      $('html, body').animate({
+        scrollTop: hasttopNewSp
+      }, 500);
     }
   return false;
 });

@@ -56,8 +56,9 @@ img {
           font-size: 16px;
           &:nth-of-type(1) {
             font-size: 15px;
-            font-family: "Varela Round";
+            font-family: "miso";
             font-size: 13px;
+            letter-spacing: 1px;
           }
           &:nth-of-type(2) {
             font-size: 16px;
@@ -79,17 +80,21 @@ img {
     p {
       span {
         display: block;
+        line-height: 62px;
       }
       &:nth-of-type(1) {
         margin-bottom: 266px;
         color: #0e3055;
-        font-family: "Varela Round";
+        font-family: "miso";
         span {
           &:nth-of-type(1) {
             font-size: 35px;
+            letter-spacing: 2.7px;
+            font-weight: 400;
           }
           &:nth-of-type(2) {
             font-size: 72px;
+            letter-spacing: 5.5px;
           }
         }
       }
@@ -126,7 +131,7 @@ img {
     .en {
       color: #c1b083;
       margin-bottom: 10px;
-      font-family: "Varela Round";
+      font-family: "miso";
     }
     .jp {
       color: #0B3863;
@@ -139,9 +144,9 @@ section {
       color: #fff;
       font-size: 36px;
       line-height: 40px;
-      padding-bottom: 5px;
       border-bottom: 1px solid #fff;
-      font-family: "Varela Round";
+      font-family: "miso";
+      font-weight: 400;
     }
   }
 }
@@ -238,7 +243,7 @@ section {
       flex-direction: row-reverse;
       overflow: hidden;
       .inner_txt {
-        height: 600px;
+        height: 631px;
         &:before {
           transform: rotate(-180deg);
           right: -151px !important;
@@ -248,9 +253,9 @@ section {
           position: absolute;
           width: 858px;
           top: 0;
-          height: 201px;
+          height: 231px;
           right: -601px;
-          padding: 50px 0;
+          padding: 57px 0;
           > p {
             span {
               width: 172px;
@@ -264,7 +269,7 @@ section {
           }
           .point_muilti {
             ul {
-              margin-bottom: 17px;
+              margin-bottom: 22px;
               li {
                 width: 135px;
                 height: 61px;
@@ -283,13 +288,13 @@ section {
                   &:before {
                     content: "\00D7";
                     color: #0c3864;
-                    font-size: 14px;
-                    font-family: "Varela Round";
+                    font-size: 26px;
+                    font-weight: 400;
+                    font-family: "miso";
+                    font-weight: 400;
                     position: absolute;
-                    top: 50%;
-                    transform: translate(0, -50%);
-                    right: -18px;
-                    font-family: "Hiragino Kaku Gothic Pro";
+                    top: 14px;
+                    right: -19px;
                   }
                 }
                 &:nth-of-type(3) {
@@ -345,7 +350,7 @@ section {
       }
       figure {
         img {
-          padding-top: 200px;
+          padding-top: 231px;
         }
       }
     }
@@ -389,9 +394,9 @@ section {
           font-weight: normal;
           line-height: 1;
           color: #0c3864;
-          font-family: "Varela Round";
-          left: 12px;
-          bottom: 5px;
+          font-weight: 400;
+          left: 13px;
+          bottom: 6px;
           position: absolute;
 
         }
@@ -404,6 +409,22 @@ section {
     }
     .scoreup {
       margin-top: 17px;
+      background: #fff;
+      padding: 16px 40px;
+      position: relative;
+      &:after {
+        content: "";
+        position:absolute;
+        left: 0;
+        top:50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 0 8px 9px;
+        border-color: transparent transparent transparent #c1b083;
+
+      }
       span {
         font-size: 20px;
         font-weight: bold;
@@ -466,7 +487,7 @@ section {
 }
 .footer {
   background: #c1b083;
-  padding: 80px 50px 100px;
+  padding: 80px 50px 120px;
   justify-content: space-between;
   align-items: center;
   .flex {
@@ -484,7 +505,8 @@ section {
   small{
     font-size: 14px;
     color: #0c3864;
-    font-family: "Varela Round";
+    font-family: "miso";
+    font-weight: 400;
   }
 }
 // article {
