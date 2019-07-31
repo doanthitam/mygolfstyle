@@ -111,7 +111,7 @@ img {
     display: block;
     position: fixed;
     width: 419px;
-    padding: 30px 0;
+    padding: 10px 0 13px;
     transition: all 0.5s;
     bottom: 0;
     right: 0;
@@ -127,11 +127,12 @@ img {
       font-size: 16px;
       display: block;
       font-weight: bold;
+      line-height: 27px;
     }
     .en {
       color: #c1b083;
-      margin-bottom: 10px;
       font-family: "miso";
+      margin-bottom: 5px;
     }
     .jp {
       color: #0B3863;
@@ -207,21 +208,24 @@ section {
     ul {
       padding-left: 100px;
       li {
-        font-size: 30px;
-        line-height: 45px;
-        color: #c1b083;
         margin-bottom: 20px;
-        position: relative;
-        padding-left: 60px;
-        &:after {
-          content: "✓";
-          position: absolute;
-          font-family: "小塚ゴシック Pr6N";
-          top: 50%;
-          left: 0;
-          font-size: 60px;
-          transform: translate(0, -50%);
+        a {
+          position: relative;
+          font-size: 30px;
+          line-height: 45px;
           color: #c1b083;
+          text-decoration: none;
+          display: block;
+          padding-left: 60px;
+          &:after {
+            content: "✓";
+            position: absolute;
+            font-family: "小塚ゴシック Pr6N";
+            top: 0;
+            left: 0;
+            font-size: 60px;
+            color: #c1b083;
+          }
         }
       }
     }
@@ -246,7 +250,7 @@ section {
         height: 631px;
         &:before {
           transform: rotate(-180deg);
-          right: -151px !important;
+          right: -159px !important;
         }
         .whitebg {
           background: #fff;
@@ -410,8 +414,9 @@ section {
     .scoreup {
       margin-top: 17px;
       background: #fff;
-      padding: 16px 40px;
+      padding: 16px 19px;
       position: relative;
+      text-align: center;
       &:after {
         content: "";
         position:absolute;
@@ -428,6 +433,7 @@ section {
       span {
         font-size: 20px;
         font-weight: bold;
+        display: block;
       }
     }
     .line_up {
@@ -487,7 +493,7 @@ section {
 }
 .footer {
   background: #c1b083;
-  padding: 80px 50px 120px;
+  padding: 80px 50px 90px;
   justify-content: space-between;
   align-items: center;
   .flex {

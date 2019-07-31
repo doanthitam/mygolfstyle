@@ -113,8 +113,8 @@ a {
   &_txt {
     position: absolute;
     text-align: center;
-    left: 23px;
-    top: 127px;
+    left: 4px;
+    top: 169px;
     p {
       color: #0e3055;
       span {
@@ -122,12 +122,12 @@ a {
         line-height: 1;
       }
       &:nth-of-type(1) {
-        margin-bottom: 53px;
+        margin-bottom: 27px;
         font-family: "miso";
         span {
           letter-spacing: 1px;
           &:nth-of-type(1) {
-            font-size: 14px;
+            font-size: 12px;
             margin-bottom: 5px;
           }
           &:nth-of-type(2) {
@@ -145,26 +145,28 @@ a {
   }
   &_trial {
     text-decoration: none;
-    color: #fff;
-    background: #0B3863;
+    background: #fff;
     padding: 10px;
     display: block;
     position: fixed;
     width: 100%;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     z-index: 9;
     text-align: center;
     span {
       font-size: 16px;
       display: block;
       font-weight: bold;
+      line-height: 23px;
     }
     .en {
       color: #c1b083;
-      margin-bottom: 10px;
       font-family: "miso";
+      margin-bottom: 5px;
+    }
+    .jp {
+      color: #0B3863;
     }
   }
 }
@@ -237,23 +239,26 @@ section {
     }
     ul {
       li {
-        font-size: 16px;
-        line-height: 24px;
-        color: #c1b083;
         margin-bottom: 17px;
-        position: relative;
-        padding-left: 20px;
-        font-weight: bold;
-        &:after {
-          content: "✓";
-          position: absolute;
-          font-family: "小塚ゴシック Pr6N";
-          top: 50%;
-          left: 0;
-          font-size: 18px;
-          transform: translate(0, -50%);
+        a {
+          font-size: 16px;
+          line-height: 24px;
           color: #c1b083;
           font-weight: bold;
+          text-decoration: none;
+          position: relative;
+          padding-left: 20px;
+          &:after {
+            content: "✓";
+            position: absolute;
+            font-family: "小塚ゴシック Pr6N";
+            top: 50%;
+            left: 0;
+            font-size: 18px;
+            transform: translate(0, -50%);
+            color: #c1b083;
+            font-weight: bold;
+          }
         }
       }
     }
@@ -310,6 +315,7 @@ section {
       position: relative;
       background: #fff;
       padding: 12px 10px 12px 20px;
+      text-align: center;
       &:after {
         content: "";
         position:absolute;
@@ -326,6 +332,7 @@ section {
       span {
         font-size: 15px;
         font-weight: bold;
+        display: block;
       }
     }
     .line_up {
@@ -334,7 +341,7 @@ section {
     }
     &:nth-of-type(2) {
       .whitebg {
-        background: #fff;
+        background: #c1b083;
         width: 100%;
         top: 0;
         padding: 30px 0;
@@ -353,6 +360,8 @@ section {
         .point_muilti {
           ul {
             padding: 37px 0 15px;
+            border: 2px solid #fff;
+            margin: 40px 0;
             li {
               width: 250px;
               height: 61px;
@@ -392,8 +401,9 @@ section {
                 }
               }
               &:last-child {
-                background: #c1b083;
+                background: #fff;
                 color: #0c3864;
+                font-size: 28px;
               }
             }
           }
@@ -484,7 +494,7 @@ section {
 .footer {
   background: #c1b083;
   padding: 20px 20px 20px;
-  margin-bottom: 91px;
+  margin-bottom: 64px;
   .flex {
     display: flex;
     align-items: center;
