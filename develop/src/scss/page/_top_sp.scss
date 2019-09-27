@@ -95,7 +95,16 @@ a {
           color: #0c3864;
           &:nth-of-type(1) {
             font-size: 15px;
-            font-family: "miso";
+            font-family: 'miso';
+            src: url('../font/miso-regular.otf');
+            src: url('../font/miso-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                 url('../font/miso-regular.woff2') format('woff2'), /* Super Modern Browsers */
+                 url('../font/miso-regular.woff') format('woff'), /* Pretty Modern Browsers */
+                 url('../font/miso-regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+                 url('../font/miso-regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+            font-weight: 400;
+            font-stretch: normal;
+            unicode-range: U+0020-2215;
           }
           &:nth-of-type(2) {
             font-size: 16px;
@@ -109,39 +118,33 @@ a {
 .mv {
   padding-top: 83px;
   position: relative;
-  position: relative;
   &_txt {
     position: absolute;
-    text-align: center;
-    left: 4px;
-    top: 169px;
-    p {
+    left: 20px;
+    top: 127px;
+    span {
+      display: block;
+      line-height: 30px;
       color: #0e3055;
-      span {
-        display: block;
-        line-height: 1;
-      }
+      font-family: "miso";
       &:nth-of-type(1) {
-        margin-bottom: 27px;
-        font-family: "miso";
-        span {
-          letter-spacing: 1px;
-          &:nth-of-type(1) {
-            font-size: 12px;
-            margin-bottom: 5px;
-          }
-          &:nth-of-type(2) {
-            font-size: 20px;
-          }
-        }
+        font-size: 25px;
+        font-weight: 400;
       }
       &:nth-of-type(2) {
-        font-size: 20px;
-        letter-spacing: 1px;
-        color: #fff;
-        line-height: 26px;
+        font-size: 28px;
       }
     }
+  }
+  .jp_txt {
+    position: absolute;
+    font-size: 26px;
+    color: #fff;
+    left: 50%;
+    bottom: 49px;
+    left: 20px;
+    font-weight: bold;
+    line-height: 30px;
   }
   &_trial {
     text-decoration: none;
@@ -162,7 +165,16 @@ a {
     }
     .en {
       color: #c1b083;
-      font-family: "miso";
+      font-family: 'miso';
+      src: url('../font/miso-regular.otf');
+      src: url('../font/miso-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+           url('../font/miso-regular.woff2') format('woff2'), /* Super Modern Browsers */
+           url('../font/miso-regular.woff') format('woff'), /* Pretty Modern Browsers */
+           url('../font/miso-regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+           url('../font/miso-regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+      font-weight: 400;
+      font-stretch: normal;
+      unicode-range: U+0020-2215;
       margin-bottom: 5px;
     }
     .jp {
@@ -179,7 +191,16 @@ section {
       line-height: 29px;
       padding-bottom: 4px;
       border-bottom: 1px solid #fff;
-      font-family: "miso";
+      font-family: 'miso';
+      src: url('../font/miso-regular.otf');
+      src: url('../font/miso-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+           url('../font/miso-regular.woff2') format('woff2'), /* Super Modern Browsers */
+           url('../font/miso-regular.woff') format('woff'), /* Pretty Modern Browsers */
+           url('../font/miso-regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+           url('../font/miso-regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+      font-weight: 400;
+      font-stretch: normal;
+      unicode-range: U+0020-2215;
     }
   }
 }
@@ -273,7 +294,7 @@ section {
       position: relative;
       background: #c1b083;
       padding: 23px 15px 30px;
-      margin-top: -6px;
+      margin-top: -8px;
       h3 {
         font-size: 18px;
         line-height: 24px;
@@ -475,17 +496,17 @@ section {
           color: #0c3864;
           margin: 7px 0 8px;
         }
+        p,a {
+          color: #0c3864;
+          text-align: center;
+          line-height: 18px;
+          font-size: 12px;
+          padding: 0 10px;
+        }
         a {
-          color: #c1b083;
           text-decoration: none;
           display: block;
-          text-align: center;
-          background: #0c3864;
-          width: 70%;
-          height: 38px;
-          line-height: 38px;
-          font-size: 12px;
-          margin: 0 auto;
+          margin-top: 8px;
         }
       }
     }

@@ -1,18 +1,30 @@
-resize();
-function resize() {
-	if ($(window).width() <= 768) {
-		$('.resimg').each(function(index,el) {
-			$(el).attr('src', $(el).attr('src').replace('pc', 'sp'));
-		});
-	}
-	else {
-		$('.resimg').each(function(index,el) {
-			$(el).attr('src', $(el).attr('src').replace('sp', 'pc'));
-		});
-	}
-}
+// resize();
+// function resize() {
+// 	if ($(window).width() <= 768) {
+// 		$('.resimg').each(function(index,el) {
+// 			$(el).attr('src', $(el).attr('src').replace('pc', 'sp'));
+// 		});
+// 	}
+// 	else {
+// 		$('.resimg').each(function(index,el) {
+// 			$(el).attr('src', $(el).attr('src').replace('sp', 'pc'));
+// 		});
+// 	}
+// }
 $(window).on('resize',function(){
   resize();
+	function resize() {
+		if ($(window).width() <= 768) {
+			$('.resimg').each(function(index,el) {
+				$(el).attr('src', $(el).attr('src').replace('pc', 'sp'));
+			});
+		}
+		else {
+			$('.resimg').each(function(index,el) {
+				$(el).attr('src', $(el).attr('src').replace('sp', 'pc'));
+			});
+		}
+	}
 })
 //scroll//
 $("#js-menuButton").on("click", function() {
@@ -32,8 +44,8 @@ $("#js-menuButton").on("click", function() {
 // Anchor
 $('a[href^="#"]').click(function(){
   var hasttop = $(this.hash).offset().top;
-  var hasttopNew = hasttop - 104;
-  var hasttopNewSp = hasttop - 83;
+  var hasttopNew = hasttop - 170;
+  var hasttopNewSp = hasttop - 71;
   if ($(window).width() > 768) {
     $('html, body').animate({
       scrollTop: hasttopNew
